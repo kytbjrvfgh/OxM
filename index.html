@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Para Mi Amor ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #ff9a9e, #fad0c4);
+      color: white;
+      text-align: center;
+    }
+
+    nav {
+      background: rgba(0,0,0,0.3);
+      padding: 15px;
+    }
+
+    nav button {
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 18px;
+      margin: 0 15px;
+      cursor: pointer;
+    }
+
+    nav button:hover {
+      text-decoration: underline;
+    }
+
+    .tab {
+      display: none;
+      padding: 40px;
+    }
+
+    .active {
+      display: block;
+    }
+
+    .heart {
+      font-size: 60px;
+      animation: latido 1s infinite;
+    }
+
+    @keyframes latido {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    img {
+      width: 200px;
+      margin: 10px;
+      border-radius: 15px;
+    }
+
+    .btn-music {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      background: white;
+      color: #ff6f91;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Música de fondo (requiere interacción del usuario) -->
+  <audio id="music" loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_115b9b1f52.mp3" type="audio/mp3">
+  </audio>
+
+  <nav>
+    <button onclick="showTab('inicio')">INICIO</button>
+    <button onclick="showTab('historia')">NUESTRA HISTORIA</button>
+    <button onclick="showTab('fotos')">FOTOS</button>
+    <button onclick="showTab('razones')">POR QUÉ TE AMO</button>
+    <button onclick="showTab('futuro')">NUESTRO FUTURO</button>
+  </nav>
+
+  <div id="inicio" class="tab active">
+    <h1>Para Ti, Mi Amor 💕</h1>
+    <div class="heart">❤️</div>
+    <p>
+      Desde que llegaste a mi vida, todo tiene más sentido.
+      Tu sonrisa ilumina mis días y tu amor llena mi corazón.
+    </p>
+    <p>Te amo muchísimo ❤️</p>
+
+    <button class="btn-music" onclick="playMusic()">🎵 Activar música</button>
+  </div>
+
+  <div id="historia" class="tab">
+    <h1>Nuestra Historia 💖</h1>
+    <p>
+      Todo comenzó el día que nos conocimos... y desde entonces,
+      cada momento contigo ha sido especial.
+    </p>
+    <p>
+      Hemos vivido risas, momentos únicos y recuerdos que nunca olvidaré.
+    </p>
+  </div>
+
+  <div id="fotos" class="tab">
+    <h1>Nuestras Fotos 📸</h1>
+    <p>Aquí puedes añadir vuestras fotos:</p>
+    <img src="https://via.placeholder.com/200" alt="foto1">
+    <img src="https://via.placeholder.com/200" alt="foto2">
+    <img src="https://via.placeholder.com/200" alt="foto3">
+  </div>
+
+  <div id="razones" class="tab">
+    <h1>Por qué te amo 💘</h1>
+    <p>Te amo por tu sonrisa 😊</p>
+    <p>Te amo por cómo me haces sentir ❤️</p>
+    <p>Te amo por ser tú 💕</p>
+    <p>Y por mil razones más que no caben aquí...</p>
+  </div>
+
+  <div id="futuro" class="tab">
+    <h1>Nuestro Futuro 🌍</h1>
+    <p>
+      Sueño con viajar contigo, reír contigo y construir una vida juntos.
+    </p>
+    <p>
+      Esto es solo el comienzo de todo lo que nos queda por vivir 💫
+    </p>
+  </div>
+
+  <script>
+    function showTab(tabId) {
+      let tabs = document.getElementsByClassName('tab');
+      for (let i = 0; i < tabs.length; i++) {
+        tabs[i].classList.remove('active');
+      }
+      document.getElementById(tabId).classList.add('active');
+    }
+
+    function playMusic() {
+      document.getElementById('music').play();
+    }
+  </script>
+
+</body>
+</html>

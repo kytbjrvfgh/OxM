@@ -2,148 +2,228 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Para Mi Amor ❤️</title>
+  <title>OxM</title>
   <style>
-    body {
+    html, body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: linear-gradient(to right, #ff9a9e, #fad0c4);
+      overflow-x: hidden;
+      height: 100%;
       color: white;
+    }
+
+    /* 🌊 UNDERWATER BACKGROUND IMAGE */
+    body {
+      background: url("fondo-mar.png") center/cover no-repeat fixed;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 200%;
+      height: 45%;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23ffffff' fill-opacity='0.15' d='M0,224L48,213.3C96,203,192,181,288,186.7C384,192,480,224,576,229.3C672,235,768,213,864,192C960,171,1056,149,1152,160C1248,171,1344,213,1392,234.7L1440,256L1440,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+      background-size: 50% 100%;
+      animation: waveMove 12s linear infinite;
+      pointer-events: none;
+      opacity: 0.85;
+    }
+
+    @keyframes waveMove {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    * { box-sizing: border-box; }
+
+    #loginScreen {
+      position: fixed;
+      inset: 0;
+      background: #000;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      padding: 20px;
       text-align: center;
     }
 
-    nav {
-      background: rgba(0,0,0,0.3);
-      padding: 15px;
-    }
+    #loginScreen h2 { font-size: 36px; margin-bottom: 10px; }
+    #loginScreen p { font-size: 18px; margin: 5px 0; }
 
-    nav button {
-      background: transparent;
+    #loginScreen input {
+      padding: 10px;
+      border-radius: 10px;
       border: none;
-      color: white;
-      font-size: 18px;
-      margin: 0 15px;
-      cursor: pointer;
+      text-align: center;
+      margin-top: 10px;
     }
 
-    nav button:hover {
-      text-decoration: underline;
-    }
-
-    .tab {
-      display: none;
-      padding: 40px;
-    }
-
-    .active {
-      display: block;
-    }
-
-    .heart {
-      font-size: 60px;
-      animation: latido 1s infinite;
-    }
-
-    @keyframes latido {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.2); }
-      100% { transform: scale(1); }
-    }
-
-    img {
-      width: 200px;
-      margin: 10px;
-      border-radius: 15px;
-    }
-
-    .btn-music {
-      margin-top: 20px;
+    #loginScreen button {
+      margin-top: 10px;
       padding: 10px 20px;
       border: none;
       border-radius: 20px;
       cursor: pointer;
       background: white;
       color: #ff6f91;
+      font-weight: bold;
+    }
+
+    #home {
+      display: none;
+      height: 100vh;
+      width: 100%;
+      position: relative;
+      text-align: center;
+    }
+
+    .center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 2;
+    }
+
+    .center h1 { font-size: 42px; margin: 0; }
+    .center p { font-size: 20px; margin-top: 10px; }
+
+    /* 🐠 FISH BUTTONS */
+    .fish-btn {
+      position: absolute;
+      width: 200px;
+      height: 110px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 15px;
+      color: white;
+
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      text-align: left;
+
+      padding-left: 32px;
+      padding-right: 6px;
+
+      text-transform: uppercase;
+      letter-spacing: 1px;
+
+      transition: 0.3s;
+
+      background: linear-gradient(135deg, #ffb347, #ff7f50);
+
+      -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 120'%3E%3Cpath d='M10 60 C30 20 110 20 130 50 C140 30 165 25 180 10 L180 110 C165 95 140 90 130 70 C110 100 30 100 10 60 Z'/%3E%3C/svg%3E");
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-size: contain;
+      -webkit-mask-position: center;
+
+      mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 120'%3E%3Cpath d='M10 60 C30 20 110 20 130 50 C140 30 165 25 180 10 L180 110 C165 95 140 90 130 70 C110 100 30 100 10 60 Z'/%3E%3C/svg%3E");
+      mask-repeat: no-repeat;
+      mask-size: contain;
+      mask-position: center;
+
+      box-shadow: inset 0 0 0 6px rgba(255,255,255,0.85);
+    }
+
+    .fish-btn:hover {
+      transform: scale(1.12);
+      filter: brightness(1.1);
+    }
+
+    .top { top: 10%; left: 50%; transform: translateX(-50%); }
+    .bottom { bottom: 10%; left: 50%; transform: translateX(-50%); }
+    .left { left: 8%; top: 50%; transform: translateY(-50%); }
+    .right { right: 8%; top: 50%; transform: translateY(-50%); }
+
+    .section {
+      display: none;
+      padding: 40px;
+      text-align: center;
     }
   </style>
 </head>
 <body>
 
-  <!-- Música de fondo (requiere interacción del usuario) -->
-  <audio id="music" loop>
-    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_115b9b1f52.mp3" type="audio/mp3">
-  </audio>
+<div id="loginScreen">
+  <h2>ACCESO PRIVADO</h2>
+  <p>Introduce la contraseña:</p>
+  <p>Te quiero como mil millones de...</p>
+  <input type="password" id="password" placeholder="Contraseña">
+  <button onclick="checkPassword()">Entrar</button>
+  <p id="error" style="color:red; display:none;">Contraseña incorrecta</p>
+</div>
 
-  <nav>
-    <button onclick="showTab('inicio')">INICIO</button>
-    <button onclick="showTab('historia')">NUESTRA HISTORIA</button>
-    <button onclick="showTab('fotos')">FOTOS</button>
-    <button onclick="showTab('razones')">POR QUÉ TE AMO</button>
-    <button onclick="showTab('futuro')">NUESTRO FUTURO</button>
-  </nav>
-
-  <div id="inicio" class="tab active">
-    <h1>Para Ti, Mi Amor 💕</h1>
-    <div class="heart">❤️</div>
-    <p>
-      Desde que llegaste a mi vida, todo tiene más sentido.
-      Tu sonrisa ilumina mis días y tu amor llena mi corazón.
-    </p>
-    <p>Te amo muchísimo ❤️</p>
-
-    <button class="btn-music" onclick="playMusic()">🎵 Activar música</button>
+<div id="home">
+  <div class="center">
+    <h1>💙MxO💙</h1>
+    <p>Juntos para siempre</p>
   </div>
 
-  <div id="historia" class="tab">
-    <h1>Nuestra Historia 💖</h1>
-    <p>
-      Todo comenzó el día que nos conocimos... y desde entonces,
-      cada momento contigo ha sido especial.
-    </p>
-    <p>
-      Hemos vivido risas, momentos únicos y recuerdos que nunca olvidaré.
-    </p>
-  </div>
+  <button class="fish-btn top" onclick="openSection('historia')">Historia</button>
+  <button class="fish-btn bottom" onclick="openSection('fotos')">Fotos</button>
+  <button class="fish-btn left" onclick="openSection('razones')">Te amo</button>
+  <button class="fish-btn right" onclick="openSection('futuro')">Futuro</button>
+</div>
 
-  <div id="fotos" class="tab">
-    <h1>Nuestras Fotos 📸</h1>
-    <p>Aquí puedes añadir vuestras fotos:</p>
-    <img src="https://via.placeholder.com/200" alt="foto1">
-    <img src="https://via.placeholder.com/200" alt="foto2">
-    <img src="https://via.placeholder.com/200" alt="foto3">
-  </div>
+<div id="historia" class="section">
+  <h1>NUESTRA HISTORIA 💖</h1>
+  <p>Todo comenzó el día que nos conocimos...</p>
+</div>
 
-  <div id="razones" class="tab">
-    <h1>Por qué te amo 💘</h1>
-    <p>Te amo por tu sonrisa 😊</p>
-    <p>Te amo por cómo me haces sentir ❤️</p>
-    <p>Te amo por ser tú 💕</p>
-    <p>Y por mil razones más que no caben aquí...</p>
-  </div>
+<div id="fotos" class="section">
+  <h1>NUESTRAS FOTOS 📸</h1>
+  <img src="https://via.placeholder.com/200">
+  <img src="https://via.placeholder.com/200">
+  <img src="https://via.placeholder.com/200">
+</div>
 
-  <div id="futuro" class="tab">
-    <h1>Nuestro Futuro 🌍</h1>
-    <p>
-      Sueño con viajar contigo, reír contigo y construir una vida juntos.
-    </p>
-    <p>
-      Esto es solo el comienzo de todo lo que nos queda por vivir 💫
-    </p>
-  </div>
+<div id="razones" class="section">
+  <h1>POR QUÉ TE AMO 💘</h1>
+  <p>Por tu sonrisa 😊</p>
+  <p>Por cómo me haces sentir ❤️</p>
+  <p>Por ser tú 💕</p>
+</div>
 
-  <script>
-    function showTab(tabId) {
-      let tabs = document.getElementsByClassName('tab');
-      for (let i = 0; i < tabs.length; i++) {
-        tabs[i].classList.remove('active');
-      }
-      document.getElementById(tabId).classList.add('active');
-    }
+<div id="futuro" class="section">
+  <h1>NUESTRO FUTURO 🌍</h1>
+  <p>Quiero todo contigo 💫</p>
+</div>
 
-    function playMusic() {
-      document.getElementById('music').play();
-    }
-  </script>
+<script>
+const correctPassword = "rusias";
+
+function checkPassword() {
+  const input = document.getElementById('password').value;
+  const error = document.getElementById('error');
+
+  if (input === correctPassword) {
+    document.getElementById('loginScreen').style.display = 'none';
+    document.getElementById('home').style.display = 'block';
+  } else {
+    error.style.display = 'block';
+  }
+}
+
+const passInput = document.getElementById('password');
+passInput.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') checkPassword();
+});
+
+function openSection(id) {
+  document.getElementById('home').style.display = 'none';
+  let sections = document.getElementsByClassName('section');
+  for (let s of sections) s.style.display = 'none';
+  document.getElementById(id).style.display = 'block';
+}
+</script>
 
 </body>
 </html>

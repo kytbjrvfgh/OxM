@@ -18,19 +18,7 @@
       position: relative;
     }
 
-    body::before {
-      content: "";
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 200%;
-      height: 45%;
-      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23ffffff' fill-opacity='0.15' d='M0,224L48,213.3C96,203,192,181,288,186.7C384,192,480,224,576,229.3C672,235,768,213,864,192C960,171,1056,149,1152,160C1248,171,1344,213,1392,234.7L1440,256L1440,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
-      background-size: 50% 100%;
-      animation: waveMove 12s linear infinite;
-      pointer-events: none;
-      opacity: 0.85;
-    }
+    /* (removed moving waves overlay) */
 
     @keyframes waveMove {
       0% { transform: translateX(0); }
